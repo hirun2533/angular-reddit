@@ -13,14 +13,17 @@ export class ArticleComponent implements OnInit {
   @Input() article: Article;
   
   articles: Article[];
-  voteNumber: number = 0;
+  Flagservice: FlagArticleService;
 
-  constructor(private service: FlagArticleService) { 
-    this.service = service;
-
+  constructor(Flagservice: FlagArticleService) { 
+    this.Flagservice = Flagservice;
 
   }
+  flagArticle(): void{
 
+    this.article.votes = this.Flagservice.CountLowerPoint() - 1;
+  }
+  
   voteUp(): boolean{
     this.article.voteUp();
     return false;
@@ -29,11 +32,6 @@ export class ArticleComponent implements OnInit {
   voteDown(): boolean {
     this.article.voteDown();
     return false;
-  }
-
-  flagArticle(): void{
-    this.voteNumber = this.service.numberCount();
-    this.article.votes = this.voteNumber - 1;
   }
 
   ngOnInit() {

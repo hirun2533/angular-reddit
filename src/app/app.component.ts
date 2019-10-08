@@ -10,20 +10,13 @@ import {FlagArticleService} from './flag-article.service';
 export class AppComponent {
   articles: Article[];
 
-   constructor(articles: FlagArticleService){
-    
-    // this.articles = [
-    //   new Article('Angular', 'http://angular.io', 3,'administrator'),
-    //   new Article('Fullstack', 'http://fullstack.io', 2,'user'),
-    //   new Article('Angular Homepage', 'http://angular.io', 1,'user'),
-     
-    // ];
-    articles.generateArticle();
-    this.articles = articles.getGenArticle();
+  constructor(articles: FlagArticleService){
+   
+    articles.ArticleGenerate();
+    this.articles = articles.GetArticleGen();
   }
   
-
-
+  
   // title = 'angular-reddit';
   addArticle(title: HTMLInputElement, link: HTMLInputElement, role:HTMLInputElement): boolean {
     console.log(`Adding article title: ${title.value} and link: ${link.value} and role:${role.value}`);

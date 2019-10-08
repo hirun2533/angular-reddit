@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Article } from './article/article.model';
+import { AppComponent } from './app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -7,38 +8,42 @@ import { Article } from './article/article.model';
 export class FlagArticleService {
 
   articleArray: Article[] = [];
-  LowerPoint: number;
-  numberArray:number[] = [];
-
+  
   constructor() { 
-
 
   }
 
-  generateArticle(){
+  ArticleGenerate(){
     this.articleArray = [
       new Article('Angular', 'http://angular.io', 3,'administrator'),
       new Article('Fullstack', 'http://fullstack.io', 2,'user'),
       new Article('Angular Homepage', 'http://angular.io', 1,'user'),
      
     ];
+    
   }
 
-  getGenArticle(){
+  GetArticleGen(): Article[] {
+    // throw new Error("Method not implemented.");
     return this.articleArray;
   }
-
-  numberCount(){
-    this.articleArray = this.getGenArticle();
-
-    if(this.articleArray){
-      for(var i=0; i < this.articleArray.length; i++){
-          this.numberArray.push(this.articleArray[i].votes);
+  CountLowerPoint(){
+ 
+    var numberArray: number[] = [];
+    if(this.articleArray = this.GetArticleGen()){
+     
+      var i = 0;
+      while(i < this.articleArray.length ){
+        numberArray.push(this.articleArray[i].votes);
+        i++;
       }
-
+      
     }
-      this.LowerPoint = this.numberArray.reduce((a,b) => Math.min(a,b));
-      return this.LowerPoint;
+      
+      var LowerPoint: number;
+      LowerPoint = numberArray.reduceRight((a,b) => Math.min.apply(Math,numberArray));     
+      return LowerPoint;
   }
+  
 
 }
