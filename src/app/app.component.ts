@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Article } from './article/article.model';
-import {FlagArticleService} from './flag-article.service';
+import { FlagArticleService } from './flag-article.service';
 
 @Component({
   selector: 'app-root',
@@ -13,13 +13,13 @@ export class AppComponent {
   constructor(articles: FlagArticleService){
    
     articles.ArticleGenerate();
-    this.articles = articles.GetArticleGen();
+    this.articles = articles.ArticleGenerate();
   }
   
   
   // title = 'angular-reddit';
   addArticle(title: HTMLInputElement, link: HTMLInputElement, role:HTMLInputElement): boolean {
-    console.log(`Adding article title: ${title.value} and link: ${link.value} and role:${role.value}`);
+    console.log(`Adding article title: ${title.value} link: ${link.value} and role:${role.value}`);
     this.articles.push(new Article(title.value, link.value,0,role.value));
     title.value = '';
     link.value = '';

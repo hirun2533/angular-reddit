@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HostBinding } from '@angular/core';
 import { Article } from './article.model';
-import {FlagArticleService} from '../flag-article.service';
+import { FlagArticleService } from '../flag-article.service';
 
 @Component({
   selector: 'app-article',
